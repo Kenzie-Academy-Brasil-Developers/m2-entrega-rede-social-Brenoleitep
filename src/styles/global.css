@@ -1,0 +1,40 @@
+.modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 24px;
+    gap: 30px;
+    width: 80%;
+    margin-top: 0;
+    background-color: var(--whiteFixed);
+    border-radius: 8px;
+    box-shadow: 0px 1px 5px -1px;
+    transition: 550ms;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 14px;
+}
+
+.modal form input {
+    width: 100%;
+    max-width: 431px;
+    height: 52px;
+}
+
+.modal span {
+    text-align: center;
+}
+
+.form__button {
+    background-color: var(--brand1);
+    color: var(--whiteFixed);
+    border-radius: 4px;
+    width: 100%;
+    max-width: 431px;
+    height: 38px;
+}
