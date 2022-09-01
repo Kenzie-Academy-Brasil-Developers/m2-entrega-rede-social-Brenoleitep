@@ -11,6 +11,12 @@
     font-size: 14px;
 }
 
+.buttonGrey1:active {
+    background-color: var(--grey1);
+    color: var(--whiteFixed);
+    font-size: 14px;
+}
+
 .buttonGrey1:hover {
     color: var(--whiteFixed);
     font-size: 14px;
