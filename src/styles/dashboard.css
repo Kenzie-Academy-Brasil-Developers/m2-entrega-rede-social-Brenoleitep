@@ -1,0 +1,60 @@
+.body__header nav h1 {
+    color: var(--whiteFixed);
+}
+
+.nav__btnSair {
+    background: none;
+    color: var(--whiteFixed);
+}
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main__postagem--info {
+    position: relative;
+    top: 100px;
+    width: 80%;
+    max-width: 713px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 18px;
+}
+
+.main__postagem--img img {
+    width: 52px;
+    height: 52px;
+    border-radius: 100px;
+    border: 1px solid var(--brand1);
+}
+
+.main__postagem--info form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.main__postagem--info form input {
+    width: 100%;
+}
+
+.form__input--descPost {
+    min-height: 130px;
+}
+
+.form__input--titlePost {
+    min-height: 52px;
+}
+
+.main__postagem--info form button {
+    height: 38px;
+    width: 69px;
+    border-radius: 4px;
+}

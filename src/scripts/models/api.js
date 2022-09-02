@@ -1,7 +1,9 @@
 import { Toast } from "../toast.js";
+import { RenderDash } from "./dashboard.js";
 
 export class Requests {
     static myToken = localStorage.getItem("brenoGram@token")
+    static myId = localStorage.getItem("brenoGram@userId")
 
     static async login(data) {
         const options = {
@@ -24,9 +26,7 @@ export class Requests {
                 }
             })
             .catch(err => {
-                if (response.token == undefined) {
-                    Toast.create("Email ou senha inválidos", "red")
-                }
+                Toast.create("Email ou senha inválidos", "red")
             });
 
         return result
@@ -49,4 +49,22 @@ export class Requests {
 
         return result
     }
+
+    static async getUsers() {
+        const options = {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: 'token 19eb00486e2c4e4b7215b822081a668318a38053'
+            }
+          };
+          
+          fetch(`https://m2-rede-social.herokuapp.com/api/users/${this.myId}/`, options)
+            .then(response => response.json())
+            .then(response => {
+                RenderDash.postCamp(response)
+            })
+            .catch(err => console.error(err));
+    }
 }
+Requests.getUsers()
