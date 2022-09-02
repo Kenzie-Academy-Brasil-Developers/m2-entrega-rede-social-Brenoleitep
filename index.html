@@ -17,7 +17,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
     <script defer type="module" src="./src/scripts/index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <title>Rede Social</title>
 </head>
@@ -39,9 +38,9 @@
 
             <form>
                 <input type="text" placeholder="Seu e-mail"
-                    class="inputDefault .inputDefault::placeholder .inputDefault:active">
+                    class="inputDefault .inputDefault::placeholder .inputDefault:active form__inputLog--email">
                 <input type="password" placeholder="Sua senha"
-                    class="inputDefault .inputDefault::placeholder .inputDefault:active">
+                    class="inputDefault .inputDefault::placeholder .inputDefault:active form__inputLog--pass">
                 <button class="text1 form__button form__button--login">Logar</button>
 
                 <span class="text1 callCadastre">Ainda não possui cadastro</span>
@@ -55,15 +54,15 @@
 
             <form>
                 <input type="text" placeholder="Seu e-mail"
-                    class="inputDefault .inputDefault::placeholder .inputDefault:active">
-                <input type="password" placeholder="Seu nome"
-                    class="inputDefault .inputDefault::placeholder .inputDefault:active">
+                    class="inputDefault .inputDefault::placeholder .inputDefault:active form__inputCad--email">
+                <input type="text" placeholder="Seu nome"
+                    class="inputDefault .inputDefault::placeholder .inputDefault:active form__inputCad--name">
                 <input type="password" placeholder="Sua senha"
-                    class="inputDefault .inputDefault::placeholder .inputDefault:active">
+                    class="inputDefault .inputDefault::placeholder .inputDefault:active form__inputCad--pass">
                 <input type="text" placeholder="Qual o seu trabalho?"
-                    class="inputDefault .inputDefault::placeholder .inputDefault:active">
+                    class="inputDefault .inputDefault::placeholder .inputDefault:active form__inputCad--work">
                 <input type="text" placeholder="URL da imagem do perfil"
-                    class="inputDefault .inputDefault::placeholder .inputDefault:active">
+                    class="inputDefault .inputDefault::placeholder .inputDefault:active form__inputCad--url">
                 <button class="text1 form__button form__button--register form__button--cadastre">Registrar</button>
 
                 <span class="text1 span__makeLog">Já possui login?</span>

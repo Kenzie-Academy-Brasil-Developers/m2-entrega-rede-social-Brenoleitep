@@ -1,5 +1,5 @@
 export class Modal {
-        static abrirFecharModal () {
+        static openCloseModal () {
         const loginBtn = document.querySelector(".nav__btnLogin")
         const modalLogin = document.querySelector(".modal__login")
         const btnCadastro = document.querySelector(".nav__btnCadastro")
