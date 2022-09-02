@@ -7,5 +7,7 @@ import { Modal } from "./models/modal.js";
 Modal.openCloseModal()
 Login.makeLogin()
 Cadastre.makeCadastro()
+// Requests.getUsers()
+
 
 

@@ -8,6 +8,9 @@
 }
 
 main {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
@@ -57,4 +60,66 @@ main {
     height: 38px;
     width: 69px;
     border-radius: 4px;
+}
+
+.main__dashboard--section {
+    display: flex;
+    position: relative;
+    top: 120px;
+    flex-direction: column;
+    width: 90%;
+    max-width: 713px;
+    gap: 25px;
+}
+
+.main__dashboard--section ul {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.section__li {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section__divInfo {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 60px;
+    width: 184px;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.section__divText {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.section__divInfo > img {
+    width: 52px;
+    height: 52px;
+    border-radius: 100px;
+}
+
+.section__divButtons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section__divButtons img {
+    width: 22px;
+    height: 20px;
+}
+
+.section__divButtons button {
+    width: 92px;
+    height: 38px;
+    border-radius: 4px;
+    padding: 0px 12px 0px 12px;
 }

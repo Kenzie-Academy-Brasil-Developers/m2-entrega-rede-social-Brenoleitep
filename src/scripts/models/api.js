@@ -54,17 +54,55 @@ export class Requests {
         const options = {
             method: 'GET',
             headers: {
-              'Content-Type': 'application/json',
-              Authorization: 'token 19eb00486e2c4e4b7215b822081a668318a38053'
+                'Content-Type': 'application/json',
+                Authorization: 'token 19eb00486e2c4e4b7215b822081a668318a38053'
             }
-          };
-          
-          fetch(`https://m2-rede-social.herokuapp.com/api/users/${this.myId}/`, options)
+        };
+
+        fetch(`https://m2-rede-social.herokuapp.com/api/users/${this.myId}/`, options)
             .then(response => response.json())
             .then(response => {
                 RenderDash.postCamp(response)
             })
             .catch(err => console.error(err));
     }
+
+    static async getPosts() {
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `token ${this.myToken}`
+            },
+        };
+
+        await fetch('https://m2-rede-social.herokuapp.com/api/posts/', options)
+            .then(response => response.json())
+            .then(response => {
+                RenderDash.postsDash(response.results)
+            })
+            .catch(err => console.error(err));
+
+    }
+
+    static async postLike (data) {
+        const options = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `token ${this.myToken}` 
+            }, 
+            body: JSON.stringify(data)
+          };
+          
+         await fetch('https://m2-rede-social.herokuapp.com/api/likes/', options)
+            .then(response => response.json())
+            .then(response => {
+                console.log(response)
+            })
+            .catch(err => console.log(err));
+
+    }
 }
 Requests.getUsers()
+Requests.getPosts()
