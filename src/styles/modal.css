@@ -3,7 +3,7 @@
     width: 100%;
     height: 72px;
     z-index: 1;
-    position: absolute;
+    position: fixed;
 }
 
 .body__header nav {
@@ -24,6 +24,7 @@
    background-color: var(--grey2);
    padding: 8px;
    border-radius: 4px;
+   position: relative;
 }
 
 .body__header nav div {
@@ -63,7 +64,7 @@ main {
 
 .modal__cadastro {
     max-width: 461px;
-    margin-top: 500%;
+    margin-top: -500%;
     justify-content: center;
     position: absolute;
     background-color: var(--grey1);
