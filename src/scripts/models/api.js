@@ -4,6 +4,10 @@ import { RenderDash } from "./dashboard.js";
 export class Requests {
     static myToken = localStorage.getItem("brenoGram@token")
     static myId = localStorage.getItem("brenoGram@userId")
+    
+    static randomNumber (max) {
+        return Math.floor(Math.random() * max + 1)
+    }
 
     static async login(data) {
         const options = {
@@ -55,7 +59,7 @@ export class Requests {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: 'token 19eb00486e2c4e4b7215b822081a668318a38053'
+                Authorization: `token ${this.myToken}`
             }
         };
 
@@ -63,6 +67,23 @@ export class Requests {
             .then(response => response.json())
             .then(response => {
                 RenderDash.postCamp(response)
+            })
+            .catch(err => console.error(err));
+    }
+
+    static async getAllUsers() {
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `token ${this.myToken}`
+            }
+        };
+
+        await fetch(`https://m2-rede-social.herokuapp.com/api/users/`, options)
+            .then(response => response.json())
+            .then(response => {
+                RenderDash.followDash(response.results)
             })
             .catch(err => console.error(err));
     }
@@ -99,13 +120,13 @@ export class Requests {
         await fetch('https://m2-rede-social.herokuapp.com/api/likes/', options)
             .then(response => response.json())
             .then(response => {
-                
+
             })
             .catch(err => console.log(err));
 
     }
 
-    static async deleteLike (data) {
+    static async deleteLike(data) {
         const options = {
             method: 'DELETE',
             headers: {
@@ -124,17 +145,17 @@ export class Requests {
 
     }
 
-    static async sendPost (data) {
+    static async sendPost(data) {
         const options = {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json',
-              Authorization: 'token 19eb00486e2c4e4b7215b822081a668318a38053'
+                'Content-Type': 'application/json',
+                Authorization: 'token 19eb00486e2c4e4b7215b822081a668318a38053'
             },
             body: JSON.stringify(data)
-          };
-          
-         const result = await fetch('https://m2-rede-social.herokuapp.com/api/posts/', options)
+        };
+
+        const result = await fetch('https://m2-rede-social.herokuapp.com/api/posts/', options)
             .then(response => response.json())
             .then(response => {
                 console.log(response)
@@ -144,10 +165,44 @@ export class Requests {
                 Toast.create(`${err}`, "red")
 
             });
-          return result
+        return result
+    }
+
+    static async follow(data) {
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `token ${this.myToken}`
+            },
+            body: JSON.stringify(data)
+        };
+
+        await fetch('https://m2-rede-social.herokuapp.com/api/users/follow/', options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.log(err));
+
+    }
+
+    static async unfollow(data) {
+        const options = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `token ${this.myToken}`
+            }
+        };
+
+        fetch(`https://m2-rede-social.herokuapp.com/api/users/unfollow/${data}/`, options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
     }
 }
 Requests.getUsers()
 Requests.getPosts()
+Requests.getAllUsers()
+
 // RenderDash.countLike()
 

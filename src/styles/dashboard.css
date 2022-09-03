@@ -19,7 +19,7 @@ main {
 .main__postagem--info {
     position: relative;
     top: 100px;
-    width: 80%;
+    width: 70%;
     max-width: 713px;
     display: flex;
     flex-wrap: wrap;
@@ -67,7 +67,7 @@ main {
     position: relative;
     top: 120px;
     flex-direction: column;
-    width: 90%;
+    width: 70%;
     max-width: 713px;
     gap: 25px;
 }
@@ -186,4 +186,59 @@ main {
     display: flex;
     flex-direction: column;
     gap: 25px;
+}
+
+
+@media (min-width: 1024px) {
+    .aside {
+        display: flex;
+        position: fixed;
+        flex-direction: column;
+        top: 100px;
+        right: 20px;
+        width: 250px;
+        gap: 15px;
+    }
+
+    .aside ul {
+        display: flex;
+        width: 100%;
+    }
+
+    .aside li {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .aside li div {
+        width: 50%;
+        
+    }
+
+    .aside__button{
+        width: 44px;
+        height: 28px;
+        background-color: var(--whiteFixed);
+        border: 1px solid var(--brand1);
+        max-width: 98px;
+        content: "Seguir";
+    }
+
+    .buttonFollowing {
+        content: "Seguindo";
+        width: 98px;
+        background-color: var(--brand1);
+    }
+
+    .aside img {
+        width: 52px;
+        height: 52px;
+        border-radius: 100px;
+        border: 1px solid var(--brand1);
+    }
+
+    
+
 }

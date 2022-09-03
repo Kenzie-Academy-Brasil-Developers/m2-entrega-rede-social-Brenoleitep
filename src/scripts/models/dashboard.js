@@ -209,4 +209,60 @@ export class RenderDash {
         divModalPost.append(titlePost, resume)
         modal.append(divImgTitle, divModalPost, closeModal)
     }
+
+    static async followDash(response) {
+        const aside = document.createElement("aside")
+        const suggestion = document.createElement("h2")
+        aside.append(suggestion)
+
+        const data = response.forEach((elem) => {
+            const main = document.querySelector(".main__dashboard")
+            const asideUl = document.createElement("ul")
+            const asideLi = document.createElement("li")
+            const asideDiv = document.createElement("div")
+            const imgPeople = document.createElement("img")
+            const namePeople = document.createElement("h2")
+            const workPeople = document.createElement("span")
+            const buttonFollow = document.createElement("button")
+
+            aside.classList.add("aside")
+            suggestion.classList.add("title2")
+            namePeople.classList.add("text1")
+            workPeople.classList.add("text3")
+            buttonFollow.classList.add("text3", "aside__button")
+
+            suggestion.innerText = "Sugestões para você seguir"
+            imgPeople.src = elem.image
+            namePeople.innerText = elem.username
+            workPeople.innerText = elem.work_at
+            buttonFollow.innerText = "Seguir"
+
+
+            buttonFollow.addEventListener("click", (e) => {
+                buttonFollow.classList.toggle("buttonFollowing")
+                if (buttonFollow.classList.contains("buttonFollowing")) {
+                    buttonFollow.innerText = "Seguindo"
+                    const data = {
+                        "following_users_uuid": elem.uuid
+                    }
+                    
+                    Requests.follow(data)
+                } else {
+                    buttonFollow.innerText = "Seguir"
+                    const data = {
+                        "following_users_uuid": elem.uuid
+                    }
+                    Requests.unfollow(data)
+                }
+            })
+            console.log(elem)
+
+            asideDiv.append(namePeople, workPeople)
+            asideLi.append(imgPeople, asideDiv, buttonFollow)
+            asideUl.append(asideLi)
+            aside.append(asideUl)
+            main.append(aside)
+        })
+        return data
+    }
 }
