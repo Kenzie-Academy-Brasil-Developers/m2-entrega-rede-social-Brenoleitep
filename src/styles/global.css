@@ -1,3 +1,22 @@
+.body__header {
+    background-color: var(--grey1);
+    width: 100%;
+    height: 72px;
+    z-index: 1;
+    position: fixed;
+}
+
+.body__header nav {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+
 .modal {
     display: flex;
     flex-direction: column;
