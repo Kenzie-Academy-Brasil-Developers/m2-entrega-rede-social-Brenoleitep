@@ -59,7 +59,7 @@ export class Requests {
             }
         };
 
-        fetch(`https://m2-rede-social.herokuapp.com/api/users/${this.myId}/`, options)
+        await fetch(`https://m2-rede-social.herokuapp.com/api/users/${this.myId}/`, options)
             .then(response => response.json())
             .then(response => {
                 RenderDash.postCamp(response)
@@ -76,33 +76,78 @@ export class Requests {
             },
         };
 
-        await fetch('https://m2-rede-social.herokuapp.com/api/posts/', options)
+        await fetch(`https://m2-rede-social.herokuapp.com/api/posts/`, options)
             .then(response => response.json())
             .then(response => {
                 RenderDash.postsDash(response.results)
             })
             .catch(err => console.error(err));
-
     }
 
-    static async postLike (data) {
+
+
+    static async postLike(data) {
         const options = {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json',
-              Authorization: `token ${this.myToken}` 
-            }, 
+                'Content-Type': 'application/json',
+                Authorization: `token ${this.myToken}`
+            },
             body: JSON.stringify(data)
-          };
-          
-         await fetch('https://m2-rede-social.herokuapp.com/api/likes/', options)
+        };
+
+        await fetch('https://m2-rede-social.herokuapp.com/api/likes/', options)
             .then(response => response.json())
             .then(response => {
+                
+            })
+            .catch(err => console.log(err));
+
+    }
+
+    static async deleteLike (data) {
+        const options = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `token ${this.myToken}`
+            }
+        };
+
+        await fetch(`https://m2-rede-social.herokuapp.com/api/likes/${data}/`, options)
+            .then(response => response.json())
+            .then(response => {
+                console.log(data)
                 console.log(response)
             })
             .catch(err => console.log(err));
 
     }
+
+    static async sendPost (data) {
+        const options = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: 'token 19eb00486e2c4e4b7215b822081a668318a38053'
+            },
+            body: JSON.stringify(data)
+          };
+          
+         const result = await fetch('https://m2-rede-social.herokuapp.com/api/posts/', options)
+            .then(response => response.json())
+            .then(response => {
+                console.log(response)
+                Toast.create("Post criado com sucesso", "green")
+            })
+            .catch(err => {
+                Toast.create(`${err}`, "red")
+
+            });
+          return result
+    }
 }
 Requests.getUsers()
 Requests.getPosts()
+// RenderDash.countLike()
+
