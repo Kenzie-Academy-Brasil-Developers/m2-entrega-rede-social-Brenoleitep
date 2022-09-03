@@ -214,6 +214,66 @@ main {
 
     .aside li div {
         width: 50%;
+<<<<<<< HEAD
+
+    }
+
+    .aside__button {
+=======
+        
+    }
+
+    .aside__button{
+>>>>>>> 9b55d82c7c07e7608cfb50cff32ebcd79b879276
+        width: 44px;
+        height: 28px;
+        background-color: var(--whiteFixed);
+        border: 1px solid var(--brand1);
+        max-width: 98px;
+        content: "Seguir";
+    }
+
+    .buttonFollowing {
+        content: "Seguindo";
+        width: 98px;
+        background-color: var(--brand1);
+    }
+
+    .aside img {
+        width: 52px;
+        height: 52px;
+        border-radius: 100px;
+        border: 1px solid var(--brand1);
+    }
+<<<<<<< HEAD
+}
+
+@media (min-width: 1440px) {
+    .aside {
+        display: flex;
+        position: fixed;
+        flex-direction: column;
+        top: 110px;
+        right: 350px;
+        width: 350px;
+        gap: 10px;
+    }
+
+    .aside ul {
+        display: flex;
+        width: 100%;
+    }
+
+    .aside li {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+        height: 67px;
+        gap: 4px;
+    }
+
+    .aside li div {
+        width: 50%;
 
     }
 
@@ -238,6 +298,11 @@ main {
         border-radius: 100px;
         border: 1px solid var(--brand1);
     }
+=======
+
+    
+
+>>>>>>> 9b55d82c7c07e7608cfb50cff32ebcd79b879276
 }
 
 @media (min-width: 1440px) {
