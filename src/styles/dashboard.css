@@ -2,6 +2,16 @@
     color: var(--whiteFixed);
 }
 
+.aside {
+    display: none;
+    position: fixed;
+    flex-direction: column;
+    top: 110px;
+    right: 350px;
+    width: 350px;
+    gap: 10px;
+}
+
 .nav__btnSair {
     background: none;
     color: var(--whiteFixed);
@@ -214,17 +224,9 @@ main {
 
     .aside li div {
         width: 50%;
-<<<<<<< HEAD
-
     }
 
     .aside__button {
-=======
-        
-    }
-
-    .aside__button{
->>>>>>> 9b55d82c7c07e7608cfb50cff32ebcd79b879276
         width: 44px;
         height: 28px;
         background-color: var(--whiteFixed);
@@ -245,7 +247,6 @@ main {
         border-radius: 100px;
         border: 1px solid var(--brand1);
     }
-<<<<<<< HEAD
 }
 
 @media (min-width: 1440px) {
@@ -298,11 +299,6 @@ main {
         border-radius: 100px;
         border: 1px solid var(--brand1);
     }
-=======
-
-    
-
->>>>>>> 9b55d82c7c07e7608cfb50cff32ebcd79b879276
 }
 
 @media (min-width: 1440px) {

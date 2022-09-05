@@ -4,8 +4,8 @@ import { RenderDash } from "./dashboard.js";
 export class Requests {
     static myToken = localStorage.getItem("brenoGram@token")
     static myId = localStorage.getItem("brenoGram@userId")
-    
-    static randomNumber (max) {
+
+    static randomNumber(max) {
         return Math.floor(Math.random() * max + 1)
     }
 
@@ -45,10 +45,16 @@ export class Requests {
 
         const result = await fetch('https://m2-rede-social.herokuapp.com/api/users/', options)
             .then(response => response.json())
-            .then(response => console.log(response))
+            .then(response => {
+                if (response.uuid != undefined) {
+                    Toast.create("Cadastro realizado com sucesso", "green")
+                } else {
+                    Toast.create("Email ou senha inválidos", "red")
+
+                }
+            })
             .catch((err) => {
                 console.log(err)
-                Toast.create("Email ou senha inválidos", "red")
             })
 
         return result

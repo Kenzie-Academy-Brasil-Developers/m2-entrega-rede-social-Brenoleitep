@@ -255,8 +255,6 @@ export class RenderDash {
                     Requests.unfollow(data)
                 }
             })
-            console.log(elem)
-
             asideDiv.append(namePeople, workPeople)
             asideLi.append(imgPeople, asideDiv, buttonFollow)
             asideUl.append(asideLi)
