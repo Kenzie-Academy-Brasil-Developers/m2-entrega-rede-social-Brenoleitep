@@ -14,7 +14,6 @@ export class Requests {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                "Authorization": `Token ${this.myToken}`
             },
             body: JSON.stringify(data)
         };
